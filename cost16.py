@@ -122,7 +122,7 @@ with st.sidebar:
     st.header("2. 변동비/손실 설정")
     fuel_adj_rate = st.number_input("연료비조정단가 (원)", value=5.0)
     climate_rate = st.number_input("기후환경요금 (원)", value=9.0)
-    fund_rate_percent = st.number_input("전력기금 (%)", value=3.7, step=0.1)
+    fund_rate_percent = st.number_input("전력기금 (%)", value=2.7, step=0.1)
     FUND_RATE = fund_rate_percent / 100
     loss_rate = st.number_input("충전 손실률 (%)", value=5.0)
     etc_cost_input = st.number_input("원단위 절사/보정 (원)", value=0)
@@ -252,7 +252,7 @@ if uploaded_file is not None:
 
                 st.divider()
                 st.subheader("📝 상세 데이터")
-                st.caption("※ **실제원가**는 손실(5%), 부가세(10%), 기금(3.7%)이 모두 포함된 최종 금액입니다.")
+                st.caption("※ **실제원가**는 손실(5%), 부가세(10%), 기금(2.7%)이 모두 포함된 최종 금액입니다.")
                 
                 display_df = clean_df[['분석_시작', '판매_전력량', '매입_전력량', '실제원가(원/kWh)', '매출액', '변동비_세후']].copy()
                 display_df.columns = ['충전시작', '판매량(kWh)', '매입량(손실반영)', '실제원가(최종)', '매출', '변동비총액']
